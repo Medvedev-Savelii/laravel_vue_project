@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <example-component></example-component>
+        <single-post-component></single-post-component>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -80,8 +80,8 @@
 </body>
 </html>
 <script>
-    import ExampleComponent from "../../js/components/ExampleComponent";
+    import SinglePostComponent from "../../js/components/SinglePostComponent";
     export default {
-        components: {ExampleComponent}
+        components: {SinglePostComponent}
     }
 </script>
