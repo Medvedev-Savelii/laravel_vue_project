@@ -5,16 +5,33 @@
                 <div class="card">
                     <div class="card-header">Single Post Component</div>
                     <div class="card-body">
-                        Name: {{name}}
+
                     </div>
-                    <button @click="sayHello">Hello</button>
-                    <button @click="myName">Name</button>
+
                 </div>
             </div>
         </div>
         <br/>
-        <PostComponent/>
-    </div>
+        <PostComponent></PostComponent>
+            <table class="table">
+               <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Job</th>
+                </tr>
+               </thead>
+                <tbody>
+                <tr v-for="person in personsAge">
+                        <th scope="row">{{ person.id }}</th>
+                        <th>{{ person.name }}</th>
+                        <th>{{person.age}}</th>
+                        <th>{{person.job}}</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 </template>
 
 <script>
@@ -28,20 +45,51 @@
 
         data() {
             return {
-                name: "Sava",
-                age: 24,
+                persons: [
+                    {
+                        id: 1,
+                        name: 'Oksana',
+                        age: 50,
+                        job: 'Realtor'
+                    },
+                    {
+                        id: 2,
+                        name: 'Zahara',
+                        age: 21,
+                        job: 'Student'
+                    },
+                    {
+                        id: 3,
+                        name: 'Dmitriy',
+                        age: 33,
+                        job: 'Secure'
+                    },
+                    {
+                        id: 4,
+                        name: 'Ganesha',
+                        age: 17,
+                        job: 'Pick'
+                    },{
+                        id: 5,
+                        name: 'Igor',
+                        age: 5,
+                        job: 'Baby'
+                    },
+                ]
             }
         },
 
         methods:{
-            sayHello() {
-                console.log("Hello Sava")
-            },
-            myName() {
-                console.log("Sava")
-            }
+
         },
 
+        computed: {
+            personsAge() {
+                return this.persons.filter(function (person) {
+                    return person.age > 20
+                })
+            }
+        },
 
         components: {
             PostComponent
