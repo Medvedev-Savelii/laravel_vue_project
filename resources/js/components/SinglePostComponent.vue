@@ -23,7 +23,7 @@
                 </tr>
                </thead>
                 <tbody>
-                <tr v-for="person in personsAge">
+                <tr v-for="person in persons">
                         <th scope="row">{{ person.id }}</th>
                         <th>{{ person.name }}</th>
                         <th>{{person.age}}</th>
@@ -36,59 +36,32 @@
 
 <script>
     import PostComponent from "./PostComponent.vue";
+    import axios from "axios";
 
     export default {
         mounted() {
-            console.log('Component mounted.')
+            this.getPersons()
         },
 
 
         data() {
             return {
-                persons: [
-                    {
-                        id: 1,
-                        name: 'Oksana',
-                        age: 50,
-                        job: 'Realtor'
-                    },
-                    {
-                        id: 2,
-                        name: 'Zahara',
-                        age: 21,
-                        job: 'Student'
-                    },
-                    {
-                        id: 3,
-                        name: 'Dmitriy',
-                        age: 33,
-                        job: 'Secure'
-                    },
-                    {
-                        id: 4,
-                        name: 'Ganesha',
-                        age: 17,
-                        job: 'Pick'
-                    },{
-                        id: 5,
-                        name: 'Igor',
-                        age: 5,
-                        job: 'Baby'
-                    },
-                ]
+                persons: null
             }
         },
 
         methods:{
-
+            getPersons() {
+                axios.get('/persons',)
+                    .then(res => {
+                        this.persons = res.data
+                    })
+                .catch(err => console.log(err))
+            }
         },
 
         computed: {
-            personsAge() {
-                return this.persons.filter(function (person) {
-                    return person.age > 20
-                })
-            }
+
         },
 
         components: {
