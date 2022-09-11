@@ -13,24 +13,24 @@
         </div>
         <br/>
         <PostComponent></PostComponent>
-            <table class="table">
-               <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Job</th>
-                </tr>
-               </thead>
-                <tbody>
-                <tr v-for="person in persons">
-                        <th scope="row">{{ person.id }}</th>
-                        <th>{{ person.name }}</th>
-                        <th>{{person.age}}</th>
-                        <th>{{person.job}}</th>
-                </tr>
-                </tbody>
-            </table>
+<!--            <table class="table">-->
+<!--               <thead>-->
+<!--                <tr>-->
+<!--                    <th scope="col">ID</th>-->
+<!--                    <th scope="col">Name</th>-->
+<!--                    <th scope="col">Age</th>-->
+<!--                    <th scope="col">Job</th>-->
+<!--                </tr>-->
+<!--               </thead>-->
+<!--                <tbody>-->
+<!--                <tr v-for="person in persons">-->
+<!--                        <th scope="row">{{ person.id }}</th>-->
+<!--                        <th>{{ person.name }}</th>-->
+<!--                        <th>{{person.age}}</th>-->
+<!--                        <th>{{person.job}}</th>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
         </div>
 </template>
 
@@ -40,24 +40,16 @@
 
     export default {
         mounted() {
-            this.getPersons()
+
         },
 
 
         data() {
-            return {
-                persons: null
-            }
+
         },
 
         methods:{
-            getPersons() {
-                axios.get('/persons',)
-                    .then(res => {
-                        this.persons = res.data
-                    })
-                .catch(err => console.log(err))
-            }
+
         },
 
         computed: {
