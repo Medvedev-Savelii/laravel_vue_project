@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Requests\Person;
-
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
 class StoreRequest extends FormRequest
 {
@@ -21,13 +21,12 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    #[ArrayShape(['name' => "string", 'age' => "integer", 'job' => "string"])] public function rules()
     {
         return [
-            "name" => "required | string",
-            "age" => "required | integer",
-            "job" => "required | String",
-
+            'name' => 'required|string',
+            'age' => 'required|integer',
+            'job' => 'required|string',
         ];
     }
 }

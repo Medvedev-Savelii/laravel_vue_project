@@ -1,18 +1,7 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Single Post Component</div>
-                    <div class="card-body">
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
         <br/>
-        <PostComponent></PostComponent>
+        <CreateComponent></CreateComponent>
 <!--            <table class="table">-->
 <!--               <thead>-->
 <!--                <tr>-->
@@ -36,6 +25,8 @@
 
 <script>
     import PostComponent from "./PostComponent.vue";
+    import CreateComponent from "./CreateComponent.vue";
+
     import axios from "axios";
 
     export default {
@@ -57,7 +48,8 @@
         },
 
         components: {
-            PostComponent
+            PostComponent,
+            CreateComponent
         }
     }
 
