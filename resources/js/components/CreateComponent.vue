@@ -13,19 +13,27 @@
            <input @click.prevent="addPerson" class="btn btn-primary" value="Добавить">
        </div>
    </div>
+    <SomeComponent :obj="obj"></SomeComponent>
+
 </template>
 
 <script>
+import SomeComponent from "./SomeComponent.vue";
     export default {
         mounted() {
-
+            this.$parent.$refs.index.indexLog();
         },
 
         data() {
             return {
                 name: null,
                 age: null,
-                job: null
+                job: null,
+                obj: {
+                    color: 'Red',
+                    number: 24,
+                    isPublished: true
+                }
             }
         },
 
@@ -39,6 +47,9 @@
                         console.log(res)
                     })
             }
+        },
+        components: {
+            SomeComponent
         }
 
     }

@@ -13,13 +13,13 @@
            </thead>
            <tbody>
            <template v-for="person in people">
-               <tr>
+               <tr :class="isEdit(person.id) ? 'd-none' : '' ">
                    <th scope="row">{{person.id}}</th>
                    <td>{{person.name}}</td>
                    <td>{{ person.age }}</td>
                    <td>{{person.job}}</td>
                    <td><a href="#" @click.prevent="changeEditPersonId(person.id, person.name, person.age, person.job)" class="btn btn-success">Edit</a></td>
-                   <td><a href="#" class="btn btn-warning">Delete</a></td>
+                   <td><a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-danger">Delete</a></td>
                </tr>
 
                <tr :class="isEdit(person.id) ? '' : 'd-none' ">
@@ -28,7 +28,6 @@
                    <td><input type="number" v-model="age" class="form-control"></td>
                    <td><input type="text" v-model="job" class="form-control"></td>
                    <td><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Update</a></td>
-                   <td><a href="#" class="btn btn-warning">Remove</a></td>
                </tr>
            </template>
            </tbody>
@@ -73,6 +72,12 @@
                         this.getPeople();
                     })
             },
+            deletePerson(id) {
+                axios.delete(`/api/people/${id}`)
+                    .then(res => {
+                        this.getPeople();
+                    })
+            },
 
             changeEditPersonId(id, name, age, job) {
                 this.editPersonId = id;
@@ -84,6 +89,9 @@
             isEdit(id) {
                 return this.editPersonId === id;
             },
+            indexLog() {
+                console.log('Hello Index Component');
+            }
         }
 
     }

@@ -2,7 +2,7 @@
     <div class="container">
 
         <CreateComponent></CreateComponent>
-        <IndexComponent></IndexComponent>
+        <IndexComponent ref="index"></IndexComponent>
     </div>
 </template>
 
@@ -14,7 +14,6 @@
 
     export default {
         mounted() {
-
         },
 
 
@@ -23,9 +22,10 @@
         },
 
         methods:{
-
+            parentLog() {
+                console.log('This is Parent Component 1');
+            }
         },
-
         computed: {
 
         },
