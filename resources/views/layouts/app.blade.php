@@ -17,14 +17,10 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
-        <single-post-component></single-post-component>
+    <div id="app" class="p-5">
+        @yield('content')
     </div>
 </body>
 </html>
 <script>
-    import SinglePostComponent from "../../js/components/SinglePostComponent";
-    export default {
-        components: {SinglePostComponent}
-    }
 </script>
