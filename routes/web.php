@@ -21,5 +21,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\IndexController::class, '__invoke']);
+Route::get('/{page}', [App\Http\Controllers\IndexController::class, '__invoke'])->where('page', '.*');
 
