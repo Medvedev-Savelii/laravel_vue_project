@@ -12,13 +12,13 @@ const routes = [
         name: 'person.create'
     },
     {
-        path: '/people/edit', component: () => import('./components/Person/Edit.vue'),
+        path: '/people/:id/edit', component: () => import('./components/Person/Edit.vue'),
         name: 'person.edit'
     },
     {
-        path: '/people/show', component: () => import('./components/Person/Show.vue'),
+        path: '/people/:id', component: () => import('./components/Person/Show.vue'),
         name: 'person.show'
-    }
+    },
 ]
 
 const router = createRouter({
