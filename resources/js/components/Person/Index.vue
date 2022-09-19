@@ -1,5 +1,5 @@
 <template>
-    <div class="w-50 p-3">
+    <div class="w-50 p-3" v-if="people">
         <table class="table">
             <thead>
             <tr>
@@ -21,7 +21,7 @@
                     <button type="button" class="btn btn-primary"><router-link class="text-light text-decoration-none" :to="{ name: 'person.edit', params: {id: person.id}}">Edit</router-link></button>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-outline-danger" @click.prevent="deletePerson(person.id)">Delete</a>
+                    <a @click.prevent="$store.dispatch('deletePerson', person.id)" href="#" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
             </tbody>
@@ -30,35 +30,18 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
     name: "Index",
-
-    data() {
-        return {
-             people: null
-        }
-    },
     mounted() {
-        this.getPeople();
+        this.$store.dispatch('getPeople')
     },
-    methods: {
-        getPeople() {
-            axios.get('/api/people')
-                .then(res => {
-                    this.people = res.data.data
-                })
-        },
-        deletePerson(id) {
-            axios.delete('/api/people/' + id)
-                .then(res => { this.getPeople()})
-                .catch(error => console.log(error))
+    computed: {
+        people() {
+            return this.$store.getters.people
         }
-    }
+    },
 }
 </script>
 
-<style scoped>
 
-</style>
