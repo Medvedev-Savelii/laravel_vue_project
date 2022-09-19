@@ -20,6 +20,7 @@
         "uninstall": "^0.0.0",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.0.13",
-        "vue-template-compiler": "^2.7.10"
+        "vue-template-compiler": "^2.7.10",
+        "vuex": "^4.0.2"
     }
 }
