@@ -6,7 +6,7 @@
 
 
 <script>
-    import Index from "../js/components/";
+    import Index from "../js/components/index.js";
     export default {
         components: {Index}
     }
